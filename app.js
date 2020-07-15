@@ -5,6 +5,7 @@ const configMensaje = require('./configMensaje');
 const configCobranza = require('./configCobranza');
 const configPrestamo= require('./configPrestamo');
 const configCredenciales= require('./configCredenciales');
+const configSolicitud = require('./configSolicitud');
 
 const app = express();
 app.use(bodyParser.json());
@@ -25,6 +26,12 @@ app.post('/credenciales', (req, res) => {
     configCredenciales(req.body);
     res.status(200).send();
 })
+
+app.post('/solicitud', (req, res) => {
+    configSolicitud(req.body);
+    res.status(200).send();
+})
+
 app.listen(3000, () => {
     console.log('Servidor corriendo')
 });
